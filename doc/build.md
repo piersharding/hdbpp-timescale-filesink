@@ -119,10 +119,10 @@ The following is a list of common useful CMake flags and their use:
 
 Each fetched components repository has a detailed README with additional information not covered here. If you wish to build components individually, see the components README:
 
-- [hdbpp-es](https://github.com/tango-controls-hdbpp/hdbpp-es)
-- [hdbpp-cm](https://github.com/tango-controls-hdbpp/hdbpp-cm)
-- [libhdbpp](https://github.com/tango-controls-hdbpp/libhdbpp)
-- [libhdbpp-timescale](https://github.com/tango-controls-hdbpp/libhdbpp-timescale)
+- [hdbpp-es](https://gitlab.com/tango-controls/hdbpp/hdbpp-es)
+- [hdbpp-cm](https://gitlab.com/tango-controls/hdbpp/hdbpp-cm)
+- [libhdbpp](https://gitlab.com/tango-controls/hdbpp/libhdbpp)
+- [libhdbpp-timescale](https://gitlab.com/tango-controls/hdbpp/libhdbpp-timescale)
 
 
 
