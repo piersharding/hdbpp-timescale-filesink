@@ -29,7 +29,7 @@ Some of the information assumes familiarity with TimescaleDb terms and technolog
 This project contains several other projects as dependencies. Currently the project is configured to express any dependencies as sub-modules. To successfully clone the project and all its dependencies use the following git command:
 
 ```bash
-git clone --recurse-submodules https://github.com/tango-controls-hdbpp/hdbpp-timescale-project.git
+git clone --recurse-submodules https://gitlab.com/tango-controls/hdbpp/hdbpp-timescale-project.git
 ```
 
 ## Versioning
@@ -74,10 +74,10 @@ A single Device Server is hosted by the project:
 
 The project contains a consolidated build system to fetch build all required external dependencies. These are currently:
 
-- [hdbpp-es](https://github.com/tango-controls-hdbpp/hdbpp-es)
-- [hdbpp-cm](https://github.com/tango-controls-hdbpp/hdbpp-cm)
-- [libhdbpp](https://github.com/tango-controls-hdbpp/libhdbpp)
-- [libhdbpp-timescale](https://github.com/tango-controls-hdbpp/libhdbpp-timescale)
+- [hdbpp-es](https://gitlab.com/tango-controls/hdbpp/hdbpp-es)
+- [hdbpp-cm](https://gitlab.com/tango-controls/hdbpp/hdbpp-cm)
+- [libhdbpp](https://gitlab.com/tango-controls/hdbpp/libhdbpp)
+- [libhdbpp-timescale](https://gitlab.com/tango-controls/hdbpp/libhdbpp-timescale)
 
 The CMakeLists.txt file defines the tag or branch for each of these projects the build system will fetch and build. It currently uses the following tags/branchs:
 
