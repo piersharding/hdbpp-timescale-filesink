@@ -32,7 +32,7 @@ General hdb++ setup and configuration is outside the scope of this project. Plea
 
 #### libhdbpp-timescale Shared Library
 
-The GitHub [README](https://github.com/tango-controls-hdbpp/libhdbpp-timescale) for this project details the configuration parameters that must be passed to the library from the hdbpp-es/hdbpp-cm Device Servers.
+The [README](https://gitlab.com/tango-controls/hdbpp/libhdbpp-timescale) for this project details the configuration parameters that must be passed to the library from the hdbpp-es/hdbpp-cm Device Servers.
 
 #### hdbpp-health-check Device Server
 
