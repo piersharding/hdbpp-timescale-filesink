@@ -54,7 +54,7 @@ To setup a simple system to test again, follow these steps:
 
 ### Insertion Testing
 
-With the base system deployed, it is possible to deploy the hdbpp-es/hdbpp-cm and the libhdbpp/libhdbpp-timescale shared libraries and insert data from a running Device Server. The setup of the HDB++ hdbpp-es/hdbpp-cm is outside the scope of this project, see the Tango documentation [here](https://tango-controls.readthedocs.io/en/latest) for mofre detailed information on HDB++. Configuration settings for the hdbpp-es/hdbpp-cm properties to interact with the TimescaleDb database is detailed in the libhdbpp-timescale [README](https://github.com/tango-controls-hdbpp/libhdbpp-timescale), and should be reviewed.
+With the base system deployed, it is possible to deploy the hdbpp-es/hdbpp-cm and the libhdbpp/libhdbpp-timescale shared libraries and insert data from a running Device Server. The setup of the HDB++ hdbpp-es/hdbpp-cm is outside the scope of this project, see the Tango documentation [here](https://tango-controls.readthedocs.io/en/latest) for mofre detailed information on HDB++. Configuration settings for the hdbpp-es/hdbpp-cm properties to interact with the TimescaleDb database is detailed in the libhdbpp-timescale [README](https://gitlab.com/tango-controls/hdbpp/libhdbpp-timescale), and should be reviewed.
 
 ### Aggregate Views
 
