@@ -67,7 +67,7 @@ set(FETCHCONTENT_QUIET off)
 
 FetchContent_Declare(
     hdbpp_cm
-    GIT_REPOSITORY "https://github.com/tango-controls-hdbpp/hdbpp-cm.git" 
+    GIT_REPOSITORY "https://gitlab.com/tango-controls/hdbpp/hdbpp-cm.git" 
     GIT_TAG ${HDBPP_CM_VERSION}
     SOURCE_DIR "${CMAKE_SOURCE_DIR}/${EXTERNAL_PROJECT_DIR}/hdbpp_cm")
 
@@ -80,7 +80,7 @@ endif()
 
 FetchContent_Declare(
     hdbpp_es
-    GIT_REPOSITORY "https://github.com/tango-controls-hdbpp/hdbpp-es.git" 
+    GIT_REPOSITORY "https://gitlab.com/tango-controls/hdbpp/hdbpp-es.git" 
     GIT_TAG ${HDBPP_ES_VERSION}
     SOURCE_DIR "${CMAKE_SOURCE_DIR}/${EXTERNAL_PROJECT_DIR}/hdbpp_es")
 
@@ -93,7 +93,7 @@ endif()
 
 FetchContent_Declare(
     libhdbpp_timescale
-    GIT_REPOSITORY "https://github.com/tango-controls-hdbpp/libhdbpp-timescale.git" 
+    GIT_REPOSITORY "https://gitlab.com/tango-controls/hdbpp/libhdbpp-timescale.git" 
     GIT_TAG ${LIBHDBPP_TIMESCALE_VERSION}
     SOURCE_DIR "${CMAKE_SOURCE_DIR}/${EXTERNAL_PROJECT_DIR}/libhdbpp-timescale")
 
