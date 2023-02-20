@@ -83,10 +83,10 @@ The CMakeLists.txt file defines the tag or branch for each of these projects the
 
 | Component | Tag/Branch |
 |------|-----|
-| hdbpp-es | master |
-| hdbpp-cm | master |
-| libhdbpp | master |
-| libhdbpp-timescale | master |
+| hdbpp-es | main |
+| hdbpp-cm | main |
+| libhdbpp | main |
+| libhdbpp-timescale | main |
 
 See the [build](doc/build.md) guide in the doc folder on how to build the project and its external dependencies.
 

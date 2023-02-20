@@ -30,9 +30,9 @@ set(LIBHDBPP_PROJECT_BUILD TRUE)
 set(LIBHDBPP_BACKEND "timescale")
 
 # component versions that will be pulled on building. This can be a commit number, a branch name or a tag.
-set(HDBPP_ES_VERSION "master")
-set(HDBPP_CM_VERSION "master")
-set(LIBHDBPP_TIMESCALE_VERSION "master")
+set(HDBPP_ES_VERSION "main")
+set(HDBPP_CM_VERSION "main")
+set(LIBHDBPP_TIMESCALE_VERSION "main")
 
 set(EXTERNAL_PROJECT_DIR "external")
 
