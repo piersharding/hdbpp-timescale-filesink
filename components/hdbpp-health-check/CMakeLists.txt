@@ -38,26 +38,25 @@ include(GNUInstallDirs)
 message(STATUS "Searching for libraries...")
 
 # Variable to contain a list of all the libs we depend on
-set(HDBPP_HC_LIBRARIES dl) 
+#set(HDBPP_HC_LIBRARIES dl) 
 
 # allow pkg-config to search the CMAKE_PREFIX_PATH 
 set(PKG_CONFIG_USE_CMAKE_PREFIX_PATH ON)
 list(APPEND CMAKE_PREFIX_PATH "/usr")
 
 # Find Dependencies  ---------------------
-include(cmake/FindLibraries.cmake)
+include(FindPkgConfig)
 
 # Attempt to find the various libraries the project is dependent on
-if(HDBPP_HC_LIBRARIES)
-    list(APPEND LIBRARY_PATHS ${CMAKE_BINARY_DIR})
-    find_libraries(LIBRARIES ${HDBPP_HC_LIBRARIES} SEARCH_PATHS ${LIBRARY_PATHS})
-    set(HDBPP_HC_FOUND_LIBRARIES ${FOUND_LIBRARIES})
-endif(HDBPP_HC_LIBRARIES)
+#if(HDBPP_HC_LIBRARIES)
+#    list(APPEND LIBRARY_PATHS ${CMAKE_BINARY_DIR})
+#    find_libraries(LIBRARIES ${HDBPP_HC_LIBRARIES} SEARCH_PATHS ${LIBRARY_PATHS})
+#    set(HDBPP_HC_FOUND_LIBRARIES ${FOUND_LIBRARIES})
+#endif(HDBPP_HC_LIBRARIES)
 
-# First find tango if it has not already been found. Returns an interface library
-# called TangoInterfaceLibrary
+# First find tango
 set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH};${CMAKE_CURRENT_SOURCE_DIR}/cmake")
-find_package(Tango)
+find_package(Tango REQUIRED)
 
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
@@ -100,7 +99,7 @@ add_executable(hdbpp_health_check ${SRC_FILES})
 target_compile_features(hdbpp_health_check PUBLIC cxx_std_11)
 
 target_link_libraries(hdbpp_health_check 
-    PRIVATE TangoInterfaceLibrary ${HDBPP_ES_FOUND_LIBRARIES} httplib Threads::Threads rapidjson)
+    PRIVATE Tango::Tango ${HDBPP_ES_FOUND_LIBRARIES} httplib Threads::Threads rapidjson)
 
 target_include_directories(hdbpp_health_check 
     PRIVATE 

@@ -80,7 +80,7 @@ namespace HdbppHealthCheck_ns
  *                implementing the classHdbppHealthCheck
  */
 //--------------------------------------------------------
-HdbppHealthCheck::HdbppHealthCheck(Tango::DeviceClass *cl, string &s)
+HdbppHealthCheck::HdbppHealthCheck(Tango::DeviceClass *cl, std::string &s)
  : TANGO_BASE_CLASS(cl, s.c_str())
 {
 	/*----- PROTECTED REGION ID(HdbppHealthCheck::constructor_1) ENABLED START -----*/
@@ -115,7 +115,7 @@ HdbppHealthCheck::HdbppHealthCheck(Tango::DeviceClass *cl, const char *s, const 
 //--------------------------------------------------------
 void HdbppHealthCheck::delete_device()
 {
-	DEBUG_STREAM << "HdbppHealthCheck::delete_device() " << device_name << endl;
+	DEBUG_STREAM << "HdbppHealthCheck::delete_device() " << device_name << std::endl;
 	/*----- PROTECTED REGION ID(HdbppHealthCheck::delete_device) ENABLED START -----*/
 	
 	//	Delete device allocated objects
@@ -138,7 +138,7 @@ void HdbppHealthCheck::delete_device()
 //--------------------------------------------------------
 void HdbppHealthCheck::init_device()
 {
-	DEBUG_STREAM << "HdbppHealthCheck::init_device() create device " << device_name << endl;
+	DEBUG_STREAM << "HdbppHealthCheck::init_device() create device " << device_name << std::endl;
 	/*----- PROTECTED REGION ID(HdbppHealthCheck::init_device_before) ENABLED START -----*/
 	
 	//	Initialization before get_device_property() call
@@ -165,7 +165,7 @@ void HdbppHealthCheck::init_device()
 
         // start the the health check thread
         run_health_check = true;
-        health_check_handler = thread(&HdbppHealthCheck::health_check_thread, this);
+        health_check_handler = std::thread(&HdbppHealthCheck::health_check_thread, this);
 
         // initial status, updated by the thread shortly
         set_status("Status will update shortly...");
@@ -260,9 +260,9 @@ void HdbppHealthCheck::get_device_property()
 	
 	//	Check device property data members init
 
-	INFO_STREAM << "restAPIHost : " << restAPIHost << endl;
-	INFO_STREAM << "restAPIPort : " << restAPIPort << endl;
-	INFO_STREAM << "restAPIRootUrl : " << restAPIRootUrl << endl;
+	INFO_STREAM << "restAPIHost : " << restAPIHost << std::endl;
+	INFO_STREAM << "restAPIPort : " << restAPIPort << std::endl;
+	INFO_STREAM << "restAPIRootUrl : " << restAPIRootUrl << std::endl;
 
 	/*----- PROTECTED REGION END -----*/	//	HdbppHealthCheck::get_device_property_after
 }
@@ -275,7 +275,7 @@ void HdbppHealthCheck::get_device_property()
 //--------------------------------------------------------
 void HdbppHealthCheck::always_executed_hook()
 {
-	DEBUG_STREAM << "HdbppHealthCheck::always_executed_hook()  " << device_name << endl;
+	DEBUG_STREAM << "HdbppHealthCheck::always_executed_hook()  " << device_name << std::endl;
 	/*----- PROTECTED REGION ID(HdbppHealthCheck::always_executed_hook) ENABLED START -----*/
 	
 	//	code always executed before all requests
@@ -289,9 +289,9 @@ void HdbppHealthCheck::always_executed_hook()
  *	Description : Hardware acquisition for attributes
  */
 //--------------------------------------------------------
-void HdbppHealthCheck::read_attr_hardware(TANGO_UNUSED(vector<long> &attr_list))
+void HdbppHealthCheck::read_attr_hardware(TANGO_UNUSED(std::vector<long> &attr_list))
 {
-	DEBUG_STREAM << "HdbppHealthCheck::read_attr_hardware(vector<long> &attr_list) entering... " << endl;
+	DEBUG_STREAM << "HdbppHealthCheck::read_attr_hardware(vector<long> &attr_list) entering... " << std::endl;
 	/*----- PROTECTED REGION ID(HdbppHealthCheck::read_attr_hardware) ENABLED START -----*/
 	
 	//	Add your own code
@@ -344,7 +344,7 @@ void HdbppHealthCheck::add_dynamic_commands()
 //--------------------------------------------------------
 void HdbppHealthCheck::health_check_thread()
 {
-	DEBUG_STREAM << "HdbppHealthCheck::health_check_thread()  - " << device_name << endl;
+	DEBUG_STREAM << "HdbppHealthCheck::health_check_thread()  - " << device_name << std::endl;
 
     while (run_health_check)
     {

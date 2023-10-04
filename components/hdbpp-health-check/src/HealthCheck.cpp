@@ -22,7 +22,7 @@
 
 #include "httplib.h"
 #include "rapidjson/document.h"
-#include <tango.h>
+#include <tango/tango.h>
 #include <iostream>
 
 namespace HdbppHealthCheck_ns

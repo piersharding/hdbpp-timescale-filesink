@@ -38,11 +38,29 @@
 #define HdbppHealthCheck_H
 
 #include "HealthCheck.h"
-#include <tango.h>
+#include <tango/tango.h>
 #include <thread>
 #include <atomic>
 
 /*----- PROTECTED REGION END -----*/	//	HdbppHealthCheck.h
+
+#ifdef TANGO_LOG
+
+	// cppTango after c934adea (Merge branch 'remove-cout-definition' into 'main', 2022-05-23)
+
+	// nothing to do
+
+#else
+
+	// cppTango 9.3-backports and older
+
+	#define TANGO_LOG       cout
+
+	#define TANGO_LOG_INFO  cout2
+
+	#define TANGO_LOG_DEBUG cout3
+
+#endif // TANGO_LOG
 
 /**
  *  HdbppHealthCheck class description:
@@ -80,13 +98,13 @@ private:
 //	Device property data members
 public:
 	//	RestAPIHost:	Host to contact when contacting the Reporting RestAPI
-	string	restAPIHost;
+    std::string	restAPIHost;
 	//	RestAPIPort:	Port to open when contacting the Reporting RestAPI
 	Tango::DevLong	restAPIPort;
 	//	RestAPIRootUrl:	Root url to prefix RestAPI requests with.
-	string	restAPIRootUrl;
+        std::string	restAPIRootUrl;
 	//	EndpointList:	List of endpoints for the host health status from the cluster reporting Rest server.
-	vector<string>	endpointList;
+        std::vector<std::string>	endpointList;
 
 
 //	Constructors and destructors
@@ -97,7 +115,7 @@ public:
 	 *	@param cl	Class.
 	 *	@param s 	Device Name
 	 */
-	HdbppHealthCheck(Tango::DeviceClass *cl,string &s);
+	HdbppHealthCheck(Tango::DeviceClass *cl,std::string &s);
 	/**
 	 * Constructs a newly device object.
 	 *
@@ -147,7 +165,7 @@ public:
 	 *	Description : Hardware acquisition for attributes.
 	 */
 	//--------------------------------------------------------
-	virtual void read_attr_hardware(vector<long> &attr_list);
+	virtual void read_attr_hardware(std::vector<long> &attr_list);
 
 
 	//--------------------------------------------------------

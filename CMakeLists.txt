@@ -30,10 +30,11 @@ set(LIBHDBPP_PROJECT_BUILD TRUE)
 set(LIBHDBPP_BACKEND "timescale")
 
 # component versions that will be pulled on building. This can be a commit number, a branch name or a tag.
-set(HDBPP_ES_VERSION "main")
-set(HDBPP_CM_VERSION "main")
-set(LIBHDBPP_TIMESCALE_VERSION "main")
+set(HDBPP_ES_VERSION "main" CACHE STRING "Hdbpp-es branch to checkout")
+set(HDBPP_CM_VERSION "main" CACHE STRING "Hdbpp-cm branch to checkout")
+set(LIBHDBPP_TIMESCALE_VERSION "main" CACHE STRING "libhdbpp-timescale branch to checkout")
 
+message(STATUS "WTF ${LIBHDBPP_TIMESCALE_VERSION}")
 set(EXTERNAL_PROJECT_DIR "external")
 
 # this will enable clang on all sub-compoents
