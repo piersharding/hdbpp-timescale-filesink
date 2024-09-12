@@ -113,7 +113,7 @@ CREATE TABLE IF NOT EXISTS att_conf (
     family text NOT NULL DEFAULT '',
     member text NOT NULL DEFAULT '',
     name text NOT NULL DEFAULT '',
-    ttl int,
+    ttl interval,
     hide boolean DEFAULT false,
     PRIMARY KEY (att_conf_id),
     FOREIGN KEY (att_conf_type_id) REFERENCES att_conf_type (att_conf_type_id),
