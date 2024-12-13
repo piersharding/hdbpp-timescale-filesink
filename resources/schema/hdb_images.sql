@@ -18,6 +18,7 @@
 -- You should have received a copy of the Lesser GNU General Public License
 -- along with libhdb++timescale.  If not, see <http://www.gnu.org/licenses/>.
 -- -----------------------------------------------------------------------------
+\c hdb
 
 CREATE TABLE IF NOT EXISTS att_image_devboolean (
     att_conf_id integer NOT NULL,
