@@ -1,0 +1,58 @@
+---
+variables:
+  # Default to 1 week
+  KANIKO_CACHE_TTL: 168h0m0s
+  TIMESCALE_VERSION: 'latest'
+  POSTGRES_VERSION: 'pg13'
+  CI_PROJECT_DIR: 'resources/hdbpp-timescale-docker'
+
+build-image:
+  stage: build
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  tags:
+    - linux
+    - docker
+    - amd64
+  before_script:
+    - mkdir -p /kaniko/.docker
+    # Configure authentication to the gitlab container registry to push images
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+    # DOCKER_AUTH_CONFIG can be defined with a container registry authentication (i.e. dockerhub) for the runner to pull images
+    # See https://docs.gitlab.com/runner/configuration/advanced-configuration/#use-a-private-container-registry
+    # We want the same authentication when pulling images inside a Dockerfile
+    - |
+      if [[ ! -z "$DOCKER_AUTH_CONFIG" ]]
+      then
+        echo $DOCKER_AUTH_CONFIG > /kaniko/.docker/docker_auth_config.json
+        # Merge files with jq
+        wget -O /workspace/jq https://github.com/jqlang/jq/releases/download/jq-1.8.0/jq-linux-amd64
+        chmod a+x /workspace/jq
+        /workspace/jq -s '{auths: (.[0].auths + .[1].auths)}' /kaniko/.docker/docker_auth_config.json /kaniko/.docker/config.json > /kaniko/.docker/merged.json
+        mv /kaniko/.docker/merged.json /kaniko/.docker/config.json
+      fi
+    - mkdir -p $CI_PROJECT_DIR/build-files/
+    - cp -rf $CI_PROJECT_DIR/../schema $CI_PROJECT_DIR/build-files/ 
+  script:
+    - >
+      /kaniko/executor
+      --context $CI_PROJECT_DIR
+      --cache=true
+      --cache-repo $CI_REGISTRY_IMAGE/cache
+      --cache-ttl $KANIKO_CACHE_TTL
+      --build-arg TDB_VERSION=$TIMESCALE_VERSION
+      --build-arg PG_VERSION=$POSTGRES_VERSION
+      --dockerfile $CI_PROJECT_DIR/Dockerfile
+      $KANIKO_EXTRA_ARGS
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: never
+    # Publish the image with "latest" and the git tag on tag
+    - if: '$CI_COMMIT_TAG'
+      variables:
+        KANIKO_EXTRA_ARGS: "--destination $CI_REGISTRY_IMAGE/hdbpp-timescale-full:latest --destination $CI_REGISTRY_IMAGE/hdbpp-timescale-full:$CI_COMMIT_TAG $KANIKO_CUSTOM_TAG_ARGS"
+    # Publish the image with "branch" name on git push
+    - if: '$CI_COMMIT_BRANCH'
+      variables:
+        KANIKO_EXTRA_ARGS: "--destination $CI_REGISTRY_IMAGE/hdbpp-timescale-full:$CI_COMMIT_BRANCH"
