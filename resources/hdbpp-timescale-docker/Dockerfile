@@ -11,7 +11,7 @@ RUN chown postgres:postgres /docker-entrypoint-initdb.d/901_hdb_schema.sql
 RUN chown postgres:postgres /docker-entrypoint-initdb.d/902_hdb_roles.sql
 RUN chown postgres:postgres /docker-entrypoint-initdb.d/903_hdb_images.sql
 
-FROM hdbpp-timescale:latest AS hdbpp-timescale-full
+#FROM hdbpp-timescale:latest AS hdbpp-timescale-full
 
 COPY build-files/schema/hdb_ext_users.sql  /docker-entrypoint-initdb.d/910_hdb_ext_users.sql
 COPY build-files/schema/hdb_ext_import.sql  /docker-entrypoint-initdb.d/911_hdb_ext_import.sql

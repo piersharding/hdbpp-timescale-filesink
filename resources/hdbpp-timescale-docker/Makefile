@@ -7,7 +7,7 @@ default: image
 build-files/.built: Dockerfile
 	mkdir -p build-files/
 	cp -rf ../schema build-files/
-	docker build --build-arg PG_VERSION=$(PG_VER) --build-arg TDB_VERSION=${TIMESCALEDB_VER} -t $(NAME):latest --target hdbpp-timescale .
+#	docker build --build-arg PG_VERSION=$(PG_VER) --build-arg TDB_VERSION=${TIMESCALEDB_VER} -t $(NAME):latest --target hdbpp-timescale .
 	docker build --build-arg PG_VERSION=$(PG_VER) --build-arg TDB_VERSION=${TIMESCALEDB_VER} -t $(NAME)-full:latest .
 	touch build-files/.built
 
