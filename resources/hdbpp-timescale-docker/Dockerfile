@@ -1,5 +1,5 @@
-ARG PG_VERSION
-ARG TDB_VERSION
+ARG PG_VERSION=pg13
+ARG TDB_VERSION=latest
 FROM timescale/timescaledb:${TDB_VERSION}-${PG_VERSION} AS hdbpp-timescale
 
 COPY build-files/schema/hdb_schema.sql  /docker-entrypoint-initdb.d/901_hdb_schema.sql
