@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.3.1] - 2025-12-04
+
+### Fixed [general]
+
+- Fix DEV_ENUM type_num in att_conf_type table
+
 ### Added [general]
 
 - Support of arrays continuous aggregates through custom aggregation functions
