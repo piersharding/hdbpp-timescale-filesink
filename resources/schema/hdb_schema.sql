@@ -70,7 +70,7 @@ INSERT INTO att_conf_type (type, type_num) VALUES
 ('DEV_BOOLEAN', 1),('DEV_SHORT', 2),('DEV_LONG', 3),('DEV_FLOAT', 4),
 ('DEV_DOUBLE', 5),('DEV_USHORT', 6),('DEV_ULONG', 7),('DEV_STRING', 8),
 ('DEV_STATE', 19),('DEV_UCHAR',22),('DEV_LONG64', 23),('DEV_ULONG64', 24),
-('DEV_ENCODED', 28),('DEV_ENUM', 30);
+('DEV_ENCODED', 28),('DEV_ENUM', 29);
 
 -- Mappings for ths Tango Data Format Type (used in att_conf)
 CREATE TABLE IF NOT EXISTS att_conf_format (
