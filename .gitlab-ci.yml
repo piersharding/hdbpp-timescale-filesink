@@ -3,7 +3,6 @@ variables:
   # Default to 1 week
   KANIKO_CACHE_TTL: 168h0m0s
   TIMESCALE_VERSION: 'latest'
-  POSTGRES_VERSION: 'pg13'
   CI_PROJECT_DIR: 'resources/hdbpp-timescale-docker'
 
 build-image:
@@ -11,6 +10,9 @@ build-image:
   image:
     name: gcr.io/kaniko-project/executor:debug
     entrypoint: [""]
+  parallel:
+    matrix:
+      - POSTGRES_VERSION: ['pg13', 'pg17', 'pg18']
   tags:
     - linux
     - docker
@@ -51,8 +53,8 @@ build-image:
     # Publish the image with "latest" and the git tag on tag
     - if: '$CI_COMMIT_TAG'
       variables:
-        KANIKO_EXTRA_ARGS: "--destination $CI_REGISTRY_IMAGE/hdbpp-timescale-full:latest --destination $CI_REGISTRY_IMAGE/hdbpp-timescale-full:$CI_COMMIT_TAG $KANIKO_CUSTOM_TAG_ARGS"
+        KANIKO_EXTRA_ARGS: "--destination $CI_REGISTRY_IMAGE/hdbpp-$POSTGRES_VERSION-timescale-full:latest --destination $CI_REGISTRY_IMAGE/hdbpp-$POSTGRES_VERSION-timescale-full:$CI_COMMIT_TAG $KANIKO_CUSTOM_TAG_ARGS"
     # Publish the image with "branch" name on git push
     - if: '$CI_COMMIT_BRANCH'
       variables:
-        KANIKO_EXTRA_ARGS: "--destination $CI_REGISTRY_IMAGE/hdbpp-timescale-full:$CI_COMMIT_BRANCH"
+        KANIKO_EXTRA_ARGS: "--destination $CI_REGISTRY_IMAGE/hdbpp-$POSTGRES_VERSION-timescale-full:$CI_COMMIT_BRANCH"
