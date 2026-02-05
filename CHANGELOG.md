@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.3.2] - 2026-02-05
+
+### Added [general]
+
+- CI builds docker image for various versions of postgresql
+
 ## [2.3.1] - 2025-12-04
 
 ### Fixed [general]
