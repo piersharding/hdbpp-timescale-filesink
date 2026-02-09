@@ -8,6 +8,7 @@
   - [Overview](#Overview)
     - [services](#services)
     - [components](#components)
+    - [file-sink](#file-sink)
     - [resources](#resources)
     - [external](#external)
     - [doc](#doc)
@@ -47,6 +48,33 @@ Contains various services deployed to assist in running the hdbpp database clust
 ### components
 
 Contains any applications or device servers required by the project
+
+### file-sink
+
+**NEW**: A file-based CSV sink for HDB++ archiving that writes data to CSV files suitable for PostgreSQL COPY operations. See [FILESINK_SUMMARY.md](FILESINK_SUMMARY.md) for feature overview and [src/filesink/README.md](src/filesink/README.md) for detailed documentation.
+
+Key features:
+- CSV output for all HDB++ tables (32 data tables + configuration tables)
+- Time and size-based rotation with wall-clock alignment
+- Atomic file publishing (`.csv.current` → `.csv`)
+- Bounded queue with backpressure
+- Configurable via environment variables
+
+Quick start:
+```bash
+cd src/filesink
+mkdir build && cd build
+cmake ..
+make
+./filesink_test    # Run unit tests
+./filesink_example # Run example
+```
+
+Documentation:
+- [Feature Summary](FILESINK_SUMMARY.md) - Overview of capabilities
+- [FileSink README](src/filesink/README.md) - Library documentation  
+- [Loader Guide](doc/filesink-loader-guide.md) - Loading CSV files into PostgreSQL
+- [Deployment Guide](doc/filesink-deployment-guide.md) - Production deployment
 
 ### resources
 
