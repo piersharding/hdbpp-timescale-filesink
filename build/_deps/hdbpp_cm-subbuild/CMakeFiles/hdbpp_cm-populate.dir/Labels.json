@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/runner/work/hdbpp-timescale-filesink/hdbpp-timescale-filesink/build/_deps/hdbpp_cm-subbuild/CMakeFiles/hdbpp_cm-populate"
+		},
+		{
+			"file" : "/home/runner/work/hdbpp-timescale-filesink/hdbpp-timescale-filesink/build/_deps/hdbpp_cm-subbuild/CMakeFiles/hdbpp_cm-populate.rule"
+		},
+		{
+			"file" : "/home/runner/work/hdbpp-timescale-filesink/hdbpp-timescale-filesink/build/_deps/hdbpp_cm-subbuild/CMakeFiles/hdbpp_cm-populate-complete.rule"
+		},
+		{
+			"file" : "/home/runner/work/hdbpp-timescale-filesink/hdbpp-timescale-filesink/build/_deps/hdbpp_cm-subbuild/hdbpp_cm-populate-prefix/src/hdbpp_cm-populate-stamp/hdbpp_cm-populate-build.rule"
+		},
+		{
+			"file" : "/home/runner/work/hdbpp-timescale-filesink/hdbpp-timescale-filesink/build/_deps/hdbpp_cm-subbuild/hdbpp_cm-populate-prefix/src/hdbpp_cm-populate-stamp/hdbpp_cm-populate-configure.rule"
+		},
+		{
+			"file" : "/home/runner/work/hdbpp-timescale-filesink/hdbpp-timescale-filesink/build/_deps/hdbpp_cm-subbuild/hdbpp_cm-populate-prefix/src/hdbpp_cm-populate-stamp/hdbpp_cm-populate-download.rule"
+		},
+		{
+			"file" : "/home/runner/work/hdbpp-timescale-filesink/hdbpp-timescale-filesink/build/_deps/hdbpp_cm-subbuild/hdbpp_cm-populate-prefix/src/hdbpp_cm-populate-stamp/hdbpp_cm-populate-install.rule"
+		},
+		{
+			"file" : "/home/runner/work/hdbpp-timescale-filesink/hdbpp-timescale-filesink/build/_deps/hdbpp_cm-subbuild/hdbpp_cm-populate-prefix/src/hdbpp_cm-populate-stamp/hdbpp_cm-populate-mkdir.rule"
+		},
+		{
+			"file" : "/home/runner/work/hdbpp-timescale-filesink/hdbpp-timescale-filesink/build/_deps/hdbpp_cm-subbuild/hdbpp_cm-populate-prefix/src/hdbpp_cm-populate-stamp/hdbpp_cm-populate-patch.rule"
+		},
+		{
+			"file" : "/home/runner/work/hdbpp-timescale-filesink/hdbpp-timescale-filesink/build/_deps/hdbpp_cm-subbuild/hdbpp_cm-populate-prefix/src/hdbpp_cm-populate-stamp/hdbpp_cm-populate-test.rule"
+		},
+		{
+			"file" : "/home/runner/work/hdbpp-timescale-filesink/hdbpp-timescale-filesink/build/_deps/hdbpp_cm-subbuild/hdbpp_cm-populate-prefix/src/hdbpp_cm-populate-stamp/hdbpp_cm-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"hdbpp_cm-populate"
+		],
+		"name" : "hdbpp_cm-populate"
+	}
+}
