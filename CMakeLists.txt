@@ -60,6 +60,13 @@ if(ENABLE_CLANG)
 endif(ENABLE_CLANG)
 
 # Find Dependencies  ---------------------
+option(BUILD_FILESINK "Build the FileSink library and examples" ON)
+
+if(BUILD_FILESINK)
+    message(STATUS "Building FileSink library")
+    add_subdirectory(src/filesink)
+endif()
+
 add_subdirectory(components/hdbpp-health-check EXCLUDE_FROM_ALL)
 #add_subdirectory(components/test EXCLUDE_FROM_ALL)
 

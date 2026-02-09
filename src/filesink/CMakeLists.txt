@@ -15,6 +15,10 @@ target_include_directories(filesink INTERFACE
 add_executable(filesink_example example.cpp)
 target_link_libraries(filesink_example PRIVATE filesink pthread)
 
+# Integration example
+add_executable(filesink_integration integration_example.cpp)
+target_link_libraries(filesink_integration PRIVATE filesink pthread)
+
 # Unit tests
 add_executable(filesink_test test.cpp)
 target_link_libraries(filesink_test PRIVATE filesink)

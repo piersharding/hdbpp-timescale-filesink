@@ -91,7 +91,7 @@ HDBPP_COPY_OUT_DIR=/tmp/hdbpp-test ./filesink_example --test
 
 The FileSink is designed to be integrated into the HDB++ Event Subscriber (hdbpp-es) or used as a standalone library.
 
-#### Header-only Library
+#### Standalone Library (Header-only)
 
 ```cpp
 #include "FileSink.h"
@@ -113,6 +113,35 @@ sink.enqueue(record);
 
 // Stop and flush
 sink.stop();
+```
+
+#### Using ISink Interface
+
+For applications that need to support multiple backends (e.g., TimescaleDB and FileSink), use the `ISink` interface:
+
+```cpp
+#include "SinkInterface.h"
+#include "FileSinkAdapter.h"
+
+using namespace hdbpp;
+
+// Create FileSink backend
+std::unique_ptr<ISink> sink = std::make_unique<FileSinkAdapter>();
+sink->start();
+
+// Write data using generic interface
+sink->writeScalar(1001, "2026-02-09 20:00:00+00", "42.5", "", 0, -1, "{}");
+sink->writeAttConf(1001, "domain/family/member/attr", 4, 0, 0, 
+                   "att_scalar_devdouble", "tango://host:10000",
+                   "domain", "family", "member", "attr", 0);
+
+sink->stop();
+```
+
+Build and run the integration example:
+```bash
+make filesink_integration
+HDBPP_COPY_OUT_DIR=/tmp/test ./filesink_integration file
 ```
 
 ## Table Schema Mapping
