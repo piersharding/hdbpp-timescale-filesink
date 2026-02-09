@@ -5,6 +5,7 @@
 #include <fstream>
 #include <sys/stat.h>
 #include <unistd.h>
+#include <fcntl.h>
 #include <iostream>
 
 namespace filesink {
@@ -94,8 +95,9 @@ public:
         
         flush();
         
-        // Get file descriptor and sync
-        int fd = fileno(fopen(getCurrentFilePath().c_str(), "r"));
+        // Get file descriptor from the file and sync
+        std::string filePath = getCurrentFilePath();
+        int fd = ::open(filePath.c_str(), O_RDONLY);
         if (fd != -1) {
             #ifdef __linux__
             fdatasync(fd);
@@ -103,9 +105,10 @@ public:
             fsync(fd);
             #endif
             ::close(fd);
+            return true;
         }
         
-        return true;
+        return false;
     }
     
     /**
