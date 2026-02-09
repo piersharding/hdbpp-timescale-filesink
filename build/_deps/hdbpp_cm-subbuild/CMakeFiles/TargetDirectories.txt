@@ -1,3 +1,0 @@
-/home/runner/work/hdbpp-timescale-filesink/hdbpp-timescale-filesink/build/_deps/hdbpp_cm-subbuild/CMakeFiles/hdbpp_cm-populate.dir
-/home/runner/work/hdbpp-timescale-filesink/hdbpp-timescale-filesink/build/_deps/hdbpp_cm-subbuild/CMakeFiles/edit_cache.dir
-/home/runner/work/hdbpp-timescale-filesink/hdbpp-timescale-filesink/build/_deps/hdbpp_cm-subbuild/CMakeFiles/rebuild_cache.dir
